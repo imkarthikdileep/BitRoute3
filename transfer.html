@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitRoute - Transfer Files</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <nav>
+        <div class="logo">
+            <div id="beetroot-logo"></div>
+            <span>BitRoute</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" class="active">Transfer</a></li>
+            <li>
+                <button id="themeToggle" onclick="toggleDarkLightMode()">🌙</button>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="transfer-page">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <section class="transfer-section">
+            <h1>Transfer Files</h1>
+            <p>Securely send files to anyone with a shareable link. No account required.</p>
+
+            <div id="dropZone" class="drop-zone">
+                <p>Drag and drop files here or <button class="file-select-btn">Select Files</button></p>
+                <input type="file" id="fileInput" multiple hidden>
+            </div>
+
+            <div id="progressContainer" class="progress-container"></div>
+            
+            <div class="connection-controls">
+                <button onclick="startConnection()" class="btn primary">Create Room</button>
+                <textarea id="signalBox" placeholder="Paste connection data here"></textarea>
+                <button onclick="connectPeer()" class="btn secondary">Join Room</button>
+            </div>
+
+            <div class="transfer-controls">
+                <button onclick="startTransfer()" class="btn primary">Start Transfer</button>
+                <button onclick="cancelTransfer()" id="cancelButton" class="btn danger" style="display: none;">Cancel Transfer</button>
+                <div id="status" class="status-message"></div>
+                <a id="downloadLink" class="download-link" style="display: none;">Download File</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Files are transferred directly between devices and are never stored on our servers.</p>
+    </footer>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="app.js"></script>
+</body>
+</html>
